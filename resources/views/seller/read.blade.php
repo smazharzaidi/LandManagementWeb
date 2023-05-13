@@ -25,5 +25,14 @@
         <td>{{$seller->phone_number}}</td>
         <td>{{$seller->address}}</td>
         <td>{{$seller->user_type}}</td>
+
+        <td>
+            <!-- Icon Button For Update -->
+            <a class = "btn" style = "border: 1px solid;" href = "{{URL::to('seller/edit', $seller->cnic)}}">
+            
+            <!-- Icon Button For Delete -->
+            <a class = "btn" style = "border: 1px solid;" href = "{{URL::to('seller/delete', $seller->cnic)}}">
+
+        </td>
     </tr>
 </tbody>
