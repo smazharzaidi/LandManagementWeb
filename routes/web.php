@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/create',function(){
+    return view('seller/create');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
