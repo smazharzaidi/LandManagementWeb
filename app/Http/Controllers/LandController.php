@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Land;
+use App\Models\Land;
 
 class LandController extends Controller
 {
@@ -14,7 +14,7 @@ class LandController extends Controller
     public function store(Request $request)
     {
 
-        $land = new \App\Models\Land;
+        $land = new Land;
         $land->tehsil = $request->get('tehsil');
         $land->khasra_number = $request->get('khasra_number');
         $land->division = $request->get('division');

@@ -14,7 +14,7 @@
 
 <body>
     <h2 style="border: 1px solid black; background-color:DodgerBlue; text-align:center;">
-        Add New Student
+        Add New Land
     </h2>
     <!-- For Redirecting With Flashed Session Data when 'Submit' button -->
     <!-- is pressed in the 'create.blade.php' view which calls the relevant -->
@@ -28,7 +28,7 @@
     </div>
     @endif
     <!-- END -->
-    <form action="{{ route ('student.store') }}" method="post">
+    <form action="{{ route ('land.store') }}" method="post">
         @csrf
         <label for="tehsil">Tehsil: &nbsp;</label>
         <input type="text" id="tehsil" name="tehsil" value="Bhutesar"><br><br>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,8 @@ Route::get('/delete', function () {
     return view('seller/delete');
 });
 
-Route::get('land/create', 'LandController@create')->name('land.create');
-Route::post('land/store', 'LandController@store')->name('land.store');
+Route::get('land/create', [LandController::class, 'create'])->name('land.create');
+Route::post('land/store', [LandController::class, 'store'])->name('land.store');
 
 
 Route::get('/', function () {
