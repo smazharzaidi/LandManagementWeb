@@ -4,12 +4,28 @@
 <head>
     <title>Lands List</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Lands List</h1>
-        <table class="table">
+        <table>
             <thead>
                 <tr>
                     <th>Tehsil</th>
@@ -31,6 +47,10 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        <form action="{{ route('land.edit', $land->id) }}" method="GET">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Edit</button>
                         </form>
                     </td>
                 </tr>
