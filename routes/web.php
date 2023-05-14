@@ -29,8 +29,8 @@ Route::get('/delete', function () {
     return view('seller/delete');
 });
 
-Route::get('land/create', 'StudentController@create')->name('student.create');
-Route::post('student/store', 'StudentController@store')->name('student.store');
+Route::get('land/create', 'LandController@create')->name('land.create');
+Route::post('land/store', 'LandController@store')->name('land.store');
 
 
 Route::get('/', function () {
