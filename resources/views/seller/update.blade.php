@@ -1,10 +1,22 @@
-<html>
-    
-    <body>
+<!DOCTYPE html>
+<html lang="en">
 
-    <h1>
-    Update Seller Record
-</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<html>
+
+    <body>
+    <h2 style="border:1px solid black;background-color:DodgerBlue; text-align:center;">
+        Update Seller Record
+    </h2>
 
 <form action="{{ route ('seller.update', $sellers->cnic) }}" method = "post">
 @csrf
