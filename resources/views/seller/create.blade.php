@@ -19,6 +19,29 @@
         {{ session('status') }}
     </div>
 
+        <tr>
+            <th>CNIC</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Email Verified At</th>
+            <th>Password</th>
+            <th>Phone No</th>
+            <th>Address</th>
+            <th>User Type</th>
+        </tr>
+
+        @foreach ($sellers ?? '' as $seller)
+        <tr>
+            <td>{{$seller->cnic}}</td>
+            <td>{{$seller->name}}</td>
+            <td>{{$seller->email}}</td>
+            <td>{{$seller->email_verified_at}}</td>
+            <td>{{$seller->password}}</td>
+            <td>{{$seller->phone_number}}</td>
+            <td>{{$seller->address}}</td>
+            <td>{{$seller->user_type}}</td>
+        </tr>
+
     @endif
     <form action="{{ route ('student.store') }}" method="post">
         
