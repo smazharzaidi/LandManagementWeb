@@ -17,6 +17,18 @@ Route::get('/create',function(){
     return view('seller/create');
 });
 
+Route::get('/read',function(){
+    return view('seller/read');
+});
+
+Route::get('/update',function(){
+    return view('seller/update');
+});
+
+Route::get('/delete',function(){
+    return view('seller/delete');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
