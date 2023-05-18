@@ -39,6 +39,21 @@
         <label for="address">Address: &nbsp;</label>
         <input type="text" id="address" name="address" value="{{ old('address') }}"><br><br>
 
+        <label for="city">City: &nbsp;</label>
+        <select id="city" name="city">
+            @foreach ($cities as $city)
+            <option value="{{ $city->name }}">{{ $city->name }}</option>
+            @endforeach
+        </select><br><br>
+        <label for="province">Province: &nbsp;</label>
+        <select id="province" name="province">
+            <option value="ICT">ICT</option>
+            <option value="KPK">KPK</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Balochistan">Balochistan</option>
+            <option value="Sindh">Sindh</option>
+        </select><br><br>
+
         <label for="user_type">User Type: &nbsp;</label>
         <select id="user_type" name="user_type">
             <option value="landowner" {{ old('user_type') == 'LandOwner' ? 'selected' : '' }}>Land Owner</option>

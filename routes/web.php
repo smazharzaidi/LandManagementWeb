@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\LandController;
+use App\Http\Controllers\CityController;
 
 Route::get('/create', [SellerController::class, 'create'])->name('seller.create');
 Route::post('/store', [SellerController::class, 'store'])->name('seller.store');
@@ -20,6 +21,9 @@ Route::get('land/{id}/edit', [LandController::class, 'edit'])->name('land.edit')
 Route::put('land/{id}', [LandController::class, 'update'])->name('land.update');
 Route::delete('land/{id}', [LandController::class, 'destroy'])->name('land.destroy');
 Route::get('land/delete/{id}', [LandController::class, 'confirmDelete'])->name('land.confirmDelete');
+
+Route::get('city/create', [CityController::class, 'create'])->name('city.create');
+Route::post('city/store', [CityController::class, 'store'])->name('city.store');
 
 Route::get('/', function () {
     return view('welcome');
