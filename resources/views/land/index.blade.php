@@ -119,7 +119,6 @@
 
         .action-buttons form {
             display: inline-block;
-            float: left;
             margin-right: 10px;
         }
 
