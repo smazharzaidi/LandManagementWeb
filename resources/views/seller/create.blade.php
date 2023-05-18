@@ -2,17 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: grid;  
+        place-items: center;  
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        height: 100vh;  
+    }
+
+    h2 {
+        text-align: center;
+        padding: 10px;
+        background-color: #388E3C;
+        color: white;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    form {
+        display: grid;  
+        grid-template-columns: 1fr;  
+        gap: 0px;  
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        margin-bottom: 30px;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    input[type="text"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        margin-top: 5px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #388E3C;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: red;
+    }
+
+
+</style>
+
 </head>
 
 <body>
-    <h2 style="border:1px solid black;background-color:DodgerBlue; text-align:center;">Add User</h2>
+    <h2 style="border:1px solid black;background-color:green; text-align:center;">Add User</h2>
     @if (session('status'))
     <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
