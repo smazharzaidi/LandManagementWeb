@@ -9,6 +9,7 @@ class SellerController extends Controller
 {
     public function create()
     {
+        return view('seller.create');
     }
     public function confirmDelete($id)
     {

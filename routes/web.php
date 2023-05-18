@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\LandController;
-use App\Http\Controllers\CityController;
 
 Route::get('/create', [SellerController::class, 'create'])->name('seller.create');
 Route::post('/store', [SellerController::class, 'store'])->name('seller.store');
