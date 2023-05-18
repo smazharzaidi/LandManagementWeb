@@ -124,6 +124,8 @@
         }
 
         .action-buttons {
+            margin-top: -8px;
+            margin-left: 12px;
             display: inline-flex;
             justify-content: space-between;
         }
