@@ -17,7 +17,7 @@
             background-color: #f4f4f4;
         }
 
-        h1 {
+        h2 {
             text-align: center;
             padding: 10px;
             background-color: #388E3C;
@@ -110,7 +110,7 @@
 <body>
     <div class="img-container"></div>
     <div class="container">
-        <h1>Edit Land Record</h1>
+        <h2>Edit Land Record</h2>
         <!-- START -->
         @if (session('status'))
         <div class="alert alert-success alert-dismissible">

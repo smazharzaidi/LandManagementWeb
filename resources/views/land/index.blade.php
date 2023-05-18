@@ -18,7 +18,7 @@
             background-color: #f4f4f4;
         }
 
-        h1 {
+        h2 {
             text-align: center;
             padding: 10px;
             background-color: #388E3C;
@@ -134,7 +134,7 @@
 
 <body>
     <div class="img-container"></div>
-    <h1>Lands List</h1>
+    <h2>Lands List</h2>
     <div class="container">
         <table>
             <thead>

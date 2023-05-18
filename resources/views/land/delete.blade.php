@@ -24,7 +24,7 @@
             margin-top: 20px;
         }
 
-        h1 {
+        h2 {
             text-align: center;
             padding: 10px;
             background-color: #388E3C;
@@ -56,8 +56,6 @@
         button.btn {
             margin-right: 10px;
         }
-
-        /* Add your .img-container styles here */
         .img-container {
             width: 100%;
             height: 200px;
@@ -68,8 +66,6 @@
             background-size: cover;
             background-position: center 75%;
         }
-
-        /* Add custom styles for buttons */
         .btn-danger {
             background-color: #dc3545;
             color: white;
@@ -100,7 +96,7 @@
 <body>
     <div class="img-container"></div>
     <div class="container">
-        <h1>Delete Land Record</h1>
+        <h2>Delete Land Record</h2>
         <div class="alert">
             <p>Are you sure you want to delete Khasra {{ $land->khasra_number }} record?</p>
             <form method="post" action="{{ route('land.destroy', $land->id) }}">
