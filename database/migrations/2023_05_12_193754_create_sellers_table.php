@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
-            $table->unsignedbiginteger('cities_id');
-            $table->foreign('cities_id')->references('id')->on('cities')->onDelete('cascade');
             $table->string('user_type');
             $table->rememberToken();
             $table->timestamps();

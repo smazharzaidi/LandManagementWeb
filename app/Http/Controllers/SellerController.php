@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seller;
-use App\Models\City;
 use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {
     public function create()
     {
-        $cities = City::all(); // Fetching cities from the database
-        return view('seller.create')->with(['cities'=>$cities]);
     }
     public function confirmDelete($id)
     {
