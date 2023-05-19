@@ -78,7 +78,7 @@
 
 <body>
     <div class="img-container"></div>
-    <h2 style="border:1px solid black;background-color:green; text-align:center;">Add User</h2>
+    <h2>Add User</h2>
     @if (session('status'))
     <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
