@@ -77,8 +77,8 @@
 </head>
 
 <body>
-    <div class="img-container"></div>
     <h2>Add User</h2>
+    <h2 style="border:1px solid black;background-color:green; text-align:center;">Add User</h2>
     @if (session('status'))
     <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -111,7 +111,7 @@
             <option value="patwari" {{ old('user_type') == 'Patwari' ? 'selected' : '' }}>Patwari</option>
         </select>
 
-        <input type="submit" value="Create">
+        <input type="submit" value="Add">
     </form>
 </body>
 
