@@ -11,12 +11,12 @@ class SellerController extends Controller
     {
         return view('seller.create');
     }
+
     public function confirmDelete($id)
     {
         $seller = Seller::find($id);
         return view('seller.confirmDelete', ['seller' => $seller]);
     }
-
 
     public function store(Request $request)
     {
@@ -30,7 +30,7 @@ class SellerController extends Controller
 
         $seller = Seller::create($validatedData);
 
-        return redirect()->route('seller.read')->with('status', 'User updated successfully!');
+        return redirect()->route('seller.read')->with('status', 'Seller created successfully!');
     }
 
     public function read()
@@ -42,37 +42,30 @@ class SellerController extends Controller
 
     public function edit($id)
     {
-        $seller = Seller::find($id);
-        return view('seller.update', ['seller' => $seller]);
+        $seller = Seller::findOrFail($id);
+        return view('seller.edit', ['seller' => $seller]);
     }
-
 
     public function update(Request $request, $id)
     {
-        $seller = Seller::where('cnic', $id)->first();
+        $seller = Seller::findOrFail($id);
 
-        if ($seller) {
-            $validatedData = $request->validate([
-                'cnic' => 'required|unique:sellers,cnic,' . $seller->id,
-                'name' => 'required',
-                'email' => 'required|email|unique:sellers,email,' . $seller->id,
-                'password' => 'required',
-                'user_type' => 'required',
-            ]);
+        $validatedData = $request->validate([
+            'cnic' => 'required|unique:sellers,cnic,' . $seller->id,
+            'name' => 'required',
+            'email' => 'required|email|unique:sellers,email,' . $seller->id,
+            'password' => 'required',
+            'user_type' => 'required',
+        ]);
 
-            $seller->update($validatedData);
+        $seller->update($validatedData);
 
-            return redirect()->route('seller.read')->with('status', 'Seller updated successfully!');
-        } else {
-            // Handle the case when seller does not exist
-            return redirect()->back()->with('error', 'Seller not found');
-        }
+        return redirect()->route('seller.read')->with('status', 'Seller updated successfully!');
     }
-
 
     public function destroy($id)
     {
-        $seller = Seller::find($id);
+        $seller = Seller::findOrFail($id);
         $seller->delete();
 
         return redirect()->route('seller.read')->with('status', 'Seller deleted successfully!');
