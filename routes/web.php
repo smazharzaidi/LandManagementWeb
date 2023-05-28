@@ -16,13 +16,13 @@ Route::get('/land/create', [LandController::class, 'create'])->name('land.create
 Route::post('/land/store', [LandController::class, 'store'])->name('land.store');
 Route::get('/land/read', [LandController::class, 'index'])->name('land.index');
 Route::get('/land/edit/{id}', [LandController::class, 'edit'])->name('land.edit');
-Route::put('/land/update/{id}', [LandController::class, 'update'])->name('land.update');
 Route::delete('/land/delete/{id}', [LandController::class, 'destroy'])->name('land.destroy');
 Route::get('/land/confirmDelete/{id}', [LandController::class, 'confirmDelete'])->name('land.confirmDelete');
-
-Route::get('/land/select_seller', [LandController::class, 'selectSellerForm'])->name('land.selectSellerForm');
-Route::post('/land/get_seller_lands', [LandController::class, 'getSellerLands'])->name('land.getSellerLands');
-
+Route::get('/land/select_seller_form', [LandController::class, 'selectSellerForm'])->name('land.select_seller_form');
+Route::get('/land/select_seller', [LandController::class, 'getSellerLands'])->name('land.select_seller');
+Route::get('/land/get_seller_lands', [LandController::class, 'getSellerLands'])->name('land.getSellerLands');
+Route::get('/land/confirm-delete/{id}', [LandController::class, 'confirmDelete'])->name('land.confirmDelete');
+Route::put('/land/update/{id}', [LandController::class, 'update'])->name('land.update');
 
 Route::get('/', function () {
     return view('welcome');

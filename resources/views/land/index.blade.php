@@ -128,7 +128,11 @@
             <tbody>
                 @foreach ($lands as $land)
                 <tr>
-                    <td>{{ $land->seller->name }}</td>
+                    <td>
+                        @foreach ($land->sellers as $seller)
+                        {{ $seller->name }}
+                        @endforeach
+                    </td>
                     <td>{{ $land->tehsil }}</td>
                     <td>{{ $land->khasra_number }}</td>
                     <td>{{ $land->division }}</td>

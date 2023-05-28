@@ -45,9 +45,10 @@ class LandController extends Controller
 
     public function index()
     {
-        $lands = Land::all();
+        $lands = Land::with('seller')->get();
         return view('land.index', ['lands' => $lands]);
     }
+
 
     public function show($id)
     {
@@ -57,9 +58,11 @@ class LandController extends Controller
 
     public function edit($id)
     {
-        $land = Land::findOrFail($id);
-        return view('land.edit', ['land' => $land]);
+        $land = Land::findOrFail($id); // Assuming you have a "Land" model
+
+        return view('land.edit', compact('land'));
     }
+
 
     public function update(Request $request, $id)
     {
@@ -70,22 +73,35 @@ class LandController extends Controller
         $land->patwari = $request->get('patwari');
         $land->save();
 
-        return redirect()->route('land.index')->with('status', 'Khasra ' . $land->khasra_number . ' updated successfully!');
+        return back()->with('status', 'Khasra ' . $land->khasra_number . ' updated successfully!');
     }
+
 
     public function destroy($id)
     {
         $land = Land::find($id);
+
+        if (!$land) {
+            return redirect()->route('land.index')->with('error', 'Land record not found!');
+        }
+
         $land->delete();
 
-        return redirect()->route('land.index')->with('status', 'Khasra ' . $land->khasra_number . ' deleted successfully!');
+        return redirect()->route('land.select_seller')->with('status', 'Khasra ' . $land->khasra_number . ' deleted successfully!');
     }
+
 
     public function confirmDelete($id)
     {
         $land = Land::find($id);
-        return view('land.delete', ['land' => $land]);
+
+        if (!$land) {
+            return redirect()->route('land.index')->with('error', 'Land record not found!');
+        }
+
+        return view('land.confirmdelete', compact('land'));
     }
+
 
     public function selectSellerForm()
     {
@@ -99,7 +115,7 @@ class LandController extends Controller
         $seller = Seller::find($sellerId);
 
         if (!$seller) {
-            return redirect()->route('land.selectSellerForm')->with('error', 'Invalid seller selected!');
+            return redirect()->route('land.select_seller_form')->with('error', 'Invalid seller selected!');
         }
 
         $lands = $seller->lands;

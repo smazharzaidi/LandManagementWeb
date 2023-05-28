@@ -42,7 +42,8 @@
             margin-top: 10px;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        select {
             margin-top: 5px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -119,7 +120,7 @@
         </div>
         @endif
         <!-- END -->
-        <form method="POST" action="{{ route('land.update', $land->id) }}">
+        <form id="update-form" method="POST" action="{{ route('land.update', $land->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -132,16 +133,28 @@
             </div>
             <div class="form-group">
                 <label for="division">Division:</label>
-                <input type="text" id="division" name="division" value="{{ $land->division }}" required>
+                <input type="text" id="division" name="division" value="{{ $land->division ?? '' }}">
             </div>
             <div class="form-group">
                 <label for="patwari">Patwari:</label>
                 <input type="text" id="patwari" name="patwari" value="{{ $land->patwari }}" required>
             </div>
-            <button type="submit">Update</button>
-            <a href="{{ route('land.index') }}" class="btn btn-secondary">Go Back</a>
+            <button type="submit" onclick="event.preventDefault(); updateLandRecord();">Update</button>
         </form>
+        <a href="#" onclick="event.preventDefault(); goBack();" class="btn btn-secondary">Go Back</a>
     </div>
+
+    <script>
+        function updateLandRecord() {
+            // Submit the form
+            document.getElementById('update-form').submit();
+        }
+
+        function goBack() {
+            // Go back to the previous page
+            window.history.back();
+        }
+    </script>
 </body>
 
 </html>

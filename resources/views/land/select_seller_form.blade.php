@@ -76,19 +76,23 @@
             background: url('https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?cs=srgb&dl=pexels-%C3%A1kos-szab%C3%B3-440731.jpg&fm=jpg') no-repeat center center;
             background-size: cover;
             background-position: center 75%;
+            margin-bottom: 20px;
+            /* Add margin-bottom */
         }
     </style>
 </head>
 
-<h2>Select a Seller</h2>
+<body>
+    <div class="img-container"></div>
+    <h2>Select a Seller</h2>
     <div class="container">
-        <form action="{{ route('land.getSellerLands') }}" method="POST">
+        <form action="{{ route('land.select_seller') }}" method="GET">
             @csrf
             <div>
                 <label for="seller_id">Select a Seller:</label>
                 <select id="seller_id" name="seller_id">
                     @foreach ($sellers as $seller)
-                        <option value="{{ $seller->id }}">{{ $seller->name }}</option>
+                    <option value="{{ $seller->id }}">{{ $seller->name }}</option>
                     @endforeach
                 </select>
             </div>

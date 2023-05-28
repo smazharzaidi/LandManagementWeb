@@ -12,4 +12,9 @@ class Land extends Model
     {
         return $this->belongsToMany(Seller::class, 'seller_land');
     }
+
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
 }

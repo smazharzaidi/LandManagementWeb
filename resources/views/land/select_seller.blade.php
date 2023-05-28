@@ -45,13 +45,14 @@
             border-collapse: collapse;
             width: 100%;
             max-width: 800px;
+            margin-bottom: 20px;
         }
 
         th,
         td {
-            border: 1px solid #000;
             padding: 8px;
             text-align: center;
+            border: 1px solid #000;
         }
 
         th {
@@ -69,7 +70,53 @@
             background-size: cover;
             background-position: center 75%;
         }
+
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-update,
+        .btn-delete {
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin-right: 5px;
+            text-decoration: none;
+        }
+
+        .btn-delete {
+            background-color: #DC3545;
+        }
+
+        .btn-update:hover,
+        .btn-delete:hover {
+            background-color: #2E7D32;
+        }
     </style>
+
 </head>
 
 <body>
@@ -85,6 +132,7 @@
                 <th>Khasra Number</th>
                 <th>Division</th>
                 <th>Patwari</th>
+                <th>Actions</th>
             </tr>
             @foreach($lands as $land)
             <tr>
@@ -92,12 +140,20 @@
                 <td>{{ $land->khasra_number }}</td>
                 <td>{{ $land->division }}</td>
                 <td>{{ $land->patwari }}</td>
+                <td class="action-buttons">
+                    <form action="{{ route('land.destroy', $land->id) }}" method="POST" style="display: inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn-delete">Delete</button>
+                    </form>
+                    <a href="{{ route('land.edit', $land->id) }}" class="btn-update">Edit</a>
+                </td>
             </tr>
             @endforeach
         </table>
         @endif
 
-        <a href="{{ route('land.selectSellerForm') }}" class="btn-back">Go Back</a>
+        <a href="{{ route('land.select_seller_form') }}" class="btn-back">Go Back</a>
     </div>
 </body>
 
