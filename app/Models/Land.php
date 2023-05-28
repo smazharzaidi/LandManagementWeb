@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\GrantUser;
 
 class Land extends Model
 {
@@ -16,5 +17,10 @@ class Land extends Model
     public function seller()
     {
         return $this->belongsTo(Seller::class);
+    }
+
+    public function grant_user()
+    {
+        return $this->belongsToMany(GrantUser::class);
     }
 }
