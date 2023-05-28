@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Land extends Model
 {
     use HasFactory;
+    public function sellers()
+    {
+        return $this->belongsToMany(Seller::class, 'seller_land');
+    }
 }

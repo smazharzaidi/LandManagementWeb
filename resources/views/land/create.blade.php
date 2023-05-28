@@ -50,6 +50,14 @@
             width: 100%;
         }
 
+        select {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
         input[type="submit"] {
             margin-top: 10px;
             padding: 10px 20px;
@@ -74,31 +82,68 @@
             background-size: cover;
             background-position: center 75%;
         }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .close {
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .close:hover {
+            color: #000;
+        }
     </style>
 </head>
 
 <body>
-    <div class="img-container">
-    </div>
+    <div class="img-container"></div>
     <h2>Add New Land</h2>
-    <!-- START -->
     @if (session('status'))
-    <div class="alert alert-success alert-dismissible">
+    <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         {{ session('status') }}
     </div>
     @endif
-    <!-- END -->
-    <form action="{{ route ('land.store') }}" method="post">
+
+    <form action="{{ route('land.store') }}" method="post">
         @csrf
-        <label for="tehsil">Tehsil: &nbsp;</label>
-        <input type="text" id="tehsil" name="tehsil" value=""><br>
-        <label for="khasra_number">Khasra Number: &nbsp;</label>
-        <input type="text" id="khasra_number" name="khasra_number" value=""><br>
-        <label for="division">Division: (if any)&nbsp;</label>
-        <input type="text" id="division" name="division" value=""><br>
-        <label for="patwari">Patwari Name: &nbsp;</label>
-        <input type="text" id="patwari" name="patwari" value=""><br>
+        <label for="tehsil">Tehsil:</label>
+        <input type="text" id="tehsil" name="tehsil" value="{{ old('tehsil') }}">
+
+        <label for="khasra_number">Khasra Number:</label>
+        <input type="text" id="khasra_number" name="khasra_number" value="{{ old('khasra_number') }}">
+
+        <label for="division">Division (if any):</label>
+        <input type="text" id="division" name="division" value="{{ old('division') }}">
+
+        <label for="patwari">Patwari Name:</label>
+        <input type="text" id="patwari" name="patwari" value="{{ old('patwari') }}">
+        <label for="seller_ids">Select Seller(s):</label>
+        <select name="seller_ids[]" id="seller_ids" multiple>
+            @foreach ($sellers as $seller)
+            <option value="{{ $seller->id }}">{{ $seller->name }}</option>
+            @endforeach
+        </select>
+
+        <label for="transaction_id">Transaction ID:</label>
+        <input type="text" id="transaction_id" name="transaction_id" value="{{ old('transaction_id') }}">
+
+        <label for="tax_amount">Tax Amount:</label>
+        <input type="text" id="tax_amount" name="tax_amount" value="{{ old('tax_amount') }}">
+
         <input type="submit" value="Submit">
     </form>
 </body>

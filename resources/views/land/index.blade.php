@@ -85,27 +85,6 @@
             background-color: #2E7D32;
         }
 
-        .container form .action-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            height: 100%;
-        }
-
-        .container form .action-buttons button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #388E3C;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .container form .action-buttons button:hover {
-            background-color: #2E7D32;
-        }
-
         .img-container {
             width: 100%;
             height: 200px;
@@ -124,7 +103,7 @@
 
         .action-buttons {
             margin-top: -8px;
-            margin-left: 12px;
+            margin-left: 0px;
             display: inline-flex;
             justify-content: space-between;
         }
@@ -138,6 +117,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Seller Name</th>
                     <th>Tehsil</th>
                     <th>Khasra Number</th>
                     <th>Division</th>
@@ -148,13 +128,15 @@
             <tbody>
                 @foreach ($lands as $land)
                 <tr>
+                    <td>{{ $land->seller->name }}</td>
                     <td>{{ $land->tehsil }}</td>
                     <td>{{ $land->khasra_number }}</td>
                     <td>{{ $land->division }}</td>
                     <td>{{ $land->patwari }}</td>
                     <td>
                         <div class="action-buttons">
-                            <form action="{{ route('land.confirmDelete', $land->id) }}" method="GET" class="delete-form">
+                            <form action="{{ route('land.confirmDelete', $land->id) }}" method="GET"
+                                class="delete-form">
                                 @csrf
                                 <button type="submit">Delete</button>
                             </form>
@@ -163,7 +145,6 @@
                             </form>
                         </div>
                     </td>
-
                 </tr>
                 @endforeach
             </tbody>
