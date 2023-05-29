@@ -4,23 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\GrantUser;
 
 class Land extends Model
 {
     use HasFactory;
+
     public function sellers()
     {
         return $this->belongsToMany(Seller::class, 'seller_land');
     }
 
-    public function seller()
+    public function grantors()
     {
-        return $this->belongsTo(Seller::class);
+        return $this->belongsToMany(Seller::class, 'grant_user_lands', 'land_id', 'grantor_id');
     }
 
-    public function grant_user()
+    public function grantees()
     {
-        return $this->belongsToMany(GrantUser::class);
+        return $this->belongsToMany(Seller::class, 'grant_user_lands', 'land_id', 'grantee_id');
     }
 }

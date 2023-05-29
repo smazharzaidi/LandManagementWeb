@@ -13,4 +13,13 @@ class Seller extends Model
     {
         return $this->belongsToMany(Land::class, 'seller_land');
     }
+    public function grantedLands()
+    {
+        return $this->belongsToMany(Land::class, 'grant_user_lands', 'grantor_id', 'land_id');
+    }
+
+    public function receivedLands()
+    {
+        return $this->belongsToMany(Land::class, 'grant_user_lands', 'grantee_id', 'land_id');
+    }
 }
